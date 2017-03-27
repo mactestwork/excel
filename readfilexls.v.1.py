@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import os,re
 import configparser
 from openpyxl import load_workbook
 FILE="Inventario.xlsx"
@@ -42,7 +43,9 @@ def read_page ( sheet ):
     for r in range(1, rows+1):
         for c in (ListColumns(columns+1)):
              value=("{0}{1}").format(c,str(r))
-             print sheet[value].value,
+             content= sheet[value].value
+             if content :
+                print content,
         print
 
 
